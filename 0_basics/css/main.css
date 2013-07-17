@@ -1,0 +1,33 @@
+#topbar {
+	background-color:grey;
+	color:white;
+	height:50px;
+}
+
+#jquerycontrols {
+	position:relative;
+	left:35%;
+	top:20%;
+}
+
+.highlight{
+	border-width: 4px;
+	border-color: red;
+	border-style: dashed;
+}
+
+code pre{
+	background-color:white;
+	border-style: solid;
+	border: 2px solid #000;
+	padding: 10px 10px;
+}
+
+body {
+	background-color: #EEE;
+}
+
+.characters img {
+	width: 100px;
+	height:100px;
+}

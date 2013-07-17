@@ -1,0 +1,62 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>index</title>
+	<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+
+
+
+<!--Example Of Google Hosted JQuery API>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script>
+
+<!--Loading JQuery from our Local-->
+<script type="text/javascript" src="scripts/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="scripts/main.js" charset="utf-8"></script>
+
+<body>
+	<div class="container">
+		<div id="topbar" class="span-24">
+			<div id="jquerycontrols">
+				<label>$('</label><input type="text" value="" id="selector"><label>').</label>	
+				<input type="button" value="highlight" id="highlight">
+			</div>
+		</div>
+		
+		<div id="sampleSelector" class="span-24">
+			<code>
+				<pre>
+JQuery Selectors use a similar notation to CSS to locate elements in the dom.
+
+EXAMPLE
+$(p)						//Type Selector
+$(#element)					//Id Selector
+$(.element)					//Class Selector
+$(input[type="button"])				//Attribute Selector.  Select all input elements with type button.
+$(p,img)					//Selecting Multiple Elements (Select all P and IMG tags).
+$(p img)					//Nested Select (Select those IMG tags nested within P tags).
+$(li:first)					//Pseudo Selector: Grab first li element in a group.
+$(li:last)					//Pseudo Selector: Grab lie li element in a group.
+				</pre>
+			</code><br/>
+			<a href="http://api.jquery.com/category/selectors/">More JQuery Selectors To Try.</a>
+			
+		</div>
+		
+		<div class="span-24">
+			<h1>HADOKEN</h1><br/>
+			<img src="http://userserve-ak.last.fm/serve/_/15389479/Street+Fighter+II+Capcom+Generations+Remix+street_fighter_2008_comics.jpg"></img>			
+			<p>Street Fighter 3 Son!!!!!!</p>
+		</div>
+		<div class="characters span-24">
+			<ul>
+				<li><img src='http://media.strategywiki.org/images/8/8b/Portrait_SSFIV_Makoto.png'></img></li>
+				<li><img src='http://0.gravatar.com/avatar/4bbca2e7541bc2183b7d37f56040163a?s=128&d=identicon&r=G'></img></li>
+				<li><img src='http://media.strategywiki.org/images/f/f2/Portrait_SSFIV_Ryu.png'></img></li>				
+				<li><img src='http://media.strategywiki.org/images/0/08/Portrait_SSFIV_Zangief.png'></img></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<html>
+<head>
+  <style>
+  	#allRulesList {
+  		background:white;
+  		height:200px;
+  		width:400px;
+  		border-color:black;
+  		border-style:solid;
+  	}
+
+  	#appliedRulesList {
+	  		background:white;
+	  		height:200px;
+	  		width:400px;
+	  		border-color:black;
+	  		border-style:solid;
+  	}
+
+  	.ruleBtn {
+  		width:100px;
+  		color:blue;
+  		font-weight:bold;
+  	}
+  </style>
+  <script src="jquery.js"></script>
+  <script language="JavaScript" type="text/JavaScript">
+
+  	var focusedList;
+
+  	$(function(){
+  		//Lists
+  		var lists = ["#allRulesList", "#appliedRulesList"];
+  		lists.forEach(listFocus);
+
+		//Controls
+		var removeControls = ["#removeRuleBtn", "#removeAllRulesBtn"];
+		var addControls = ["#addAllRulesBtn", "#addRuleBtn"];
+  		var listControls = $.merge(addControls, removeControls);
+		listControls.forEach(modRules);
+
+  	});
+
+  	function modRules(element, index, array) {
+	    $(element).click(function(){
+			if(element == "#addAllRulesBtn"){
+				console.log("ADD ALL RULES");
+				moveOptions("#allRulesList", "#appliedRulesList");
+			}else if(element == "#removeAllRulesBtn"){
+				console.log("REMOVE ALL RULES");
+				moveOptions("#appliedRulesList", "#allRulesList");
+			}if(focusedList == "#appliedRulesList" && element == "#removeRuleBtn"){
+				console.log("REMOVE RULE");
+				moveSelectedOptions("#appliedRulesList", "#allRulesList");
+			}else if(focusedList == "#allRulesList" && element == "#addRuleBtn"){
+				console.log("ADD RULE");
+				moveSelectedOptions("#allRulesList", "#appliedRulesList");
+			}
+	    });
+	}
+
+
+	function moveSelectedOptions(fromList, toList){
+		console.log("moveSelectedOption");
+		var nextSibling = $(fromList + " option:selected").next();
+
+		$(fromList + " option:selected").each(function(){
+			$(this).appendTo(toList);
+		});
+
+		$(toList + " option:selected").each(function(){
+			$(this).removeAttr("selected");
+		});
+
+		nextSibling.attr("selected", "selected");
+	}
+
+	function moveOptions(fromList, toList){
+		console.log("moveOptions");
+		$(fromList + " option").each(function(){
+			$(this).appendTo(toList);
+		});
+	}
+
+	function listFocus(element, index, array) {
+		$(element).focus(function(){
+			console.log(element + " [FOCUS]");
+			focusedList = element;
+		});
+	}
+  </script>
+
+</head>
+<body>
+
+
+<table>
+<tr>
+	<td>
+		<SELECT multiple id="allRulesList">
+			<OPTION>Rule#1
+			<OPTION>Rule#2
+			<OPTION>Rule#3
+			<OPTION>Rule#4
+			<OPTION>Rule#5
+			<OPTION>Rule#6
+		</SELECT>
+	</td>
+	<td>
+		<input class="ruleBtn" type="button" id="addAllRulesBtn" value="=>=>"></input></br>
+		<input class="ruleBtn" type="button" id="addRuleBtn" value="->"></input></br>
+		<input class="ruleBtn" type="button" id="removeRuleBtn" value="<-"></input></br>
+		<input class="ruleBtn" type="button" id="removeAllRulesBtn" value="<=<="></input></br>
+	</td>
+	<td>
+		<SELECT multiple id="appliedRulesList">
+			<OPTION>Rule#7
+			<OPTION>Rule#8
+			<OPTION>Rule#9
+			<OPTION>Rule#10
+			<OPTION>Rule#11
+			<OPTION>Rule#12
+		</SELECT>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>
